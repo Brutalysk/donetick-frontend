@@ -153,8 +153,11 @@ const ChoreView = () => {
         size: 6,
         icon: <Person />,
         title: 'Details',
-        subtext: `Created By: ${
+        text: `Created By: ${
           performers.find(p => p.id === chore.createdBy)?.displayName || 'N/A'
+        }`,
+        subtext: `Points: ${
+          chore.points
         }`,
       },
     ]

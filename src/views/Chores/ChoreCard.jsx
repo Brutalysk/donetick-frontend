@@ -421,16 +421,18 @@ const ChoreCard = ({
     }
     return name
   }
+
+  const chipStyle = {
+    position: 'relative',
+    top: 10,
+    zIndex: 1,
+    left: 10,
+  };
   return (
     <Box key={chore.id + '-box'}>
       <Chip
         variant='soft'
-        sx={{
-          position: 'relative',
-          top: 10,
-          zIndex: 1,
-          left: 10,
-        }}
+        sx={chipStyle}
         color={getDueDateChipColor(chore.nextDueDate)}
       >
         {getDueDateChipText(chore.nextDueDate)}
@@ -438,13 +440,10 @@ const ChoreCard = ({
 
       <Chip
         variant='soft'
-        sx={{
-          position: 'relative',
-          top: 10,
-          zIndex: 1,
-          ml: 0.4,
-          left: 10,
-        }}
+        sx={[
+          chipStyle,
+          {ml: 0.4}
+        ]}
       >
         <div
           style={{
@@ -456,6 +455,16 @@ const ChoreCard = ({
           {getFrequencyIcon(chore)}
           {getRecurrentChipText(chore)}
         </div>
+      </Chip>
+
+      <Chip
+        variant='soft'
+        sx={[
+          chipStyle,
+          {ml: 0.4}
+        ]}
+      >
+        {chore.points} points
       </Chip>
 
       <Card
